@@ -436,21 +436,23 @@ class Stickman:
         self.slash_effects = [effect for effect in self.slash_effects if effect.update()]
         self.particles = [p for p in self.particles if p.update()]
 
-def main():
-    clock = pygame.time.Clock()
+def reset_game():
     player = Stickman(100, True)
-    
-    # List to store dead enemies
-    dead_enemies = []
-    
-    # Enemy wave system
-    current_wave = 1
     enemy = Stickman(WIDTH - 100, False)
     enemy.speed = 5  # Base speed
+    return player, enemy, [], 1, 0  # Returns player, enemy, dead_enemies, current_wave, score
+
+def main():
+    clock = pygame.time.Clock()
     
-    # Score and font
-    score = 0
+    # Initialize game state
+    player, enemy, dead_enemies, current_wave, score = reset_game()
+    
+    # Font setup
     font = pygame.font.Font(None, 36)
+    
+    # Game state
+    game_over = False
     
     while True:
         for event in pygame.event.get():
@@ -475,14 +477,30 @@ def main():
                         player.dash(1 if player.facing_right else -1)
 
         if player.dead:
+            if not game_over:  # Only set game_over once when player dies
+                game_over = True
+            
             # Game Over screen
             screen.fill(WHITE)
             game_over_text = font.render(f'Game Over - Wave: {current_wave}', True, BLACK)
             score_text = font.render(f'Final Score: {score}', True, BLACK)
-            game_over_rect = game_over_text.get_rect(center=(WIDTH/2, HEIGHT/2 - 20))
-            score_rect = score_text.get_rect(center=(WIDTH/2, HEIGHT/2 + 20))
+            restart_text = font.render('Press SPACE to restart', True, BLACK)
+            
+            game_over_rect = game_over_text.get_rect(center=(WIDTH/2, HEIGHT/2 - 40))
+            score_rect = score_text.get_rect(center=(WIDTH/2, HEIGHT/2))
+            restart_rect = restart_text.get_rect(center=(WIDTH/2, HEIGHT/2 + 40))
+            
             screen.blit(game_over_text, game_over_rect)
             screen.blit(score_text, score_rect)
+            screen.blit(restart_text, restart_rect)
+            
+            # Check for restart
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_SPACE]:
+                # Reset game state
+                player, enemy, dead_enemies, current_wave, score = reset_game()
+                game_over = False
+            
             pygame.display.flip()
             continue
 
