@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stickman Fighter - Endless Combat Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f0f2f5;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .game-preview {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .game-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .download-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .controls {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .controls table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .controls td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .controls td:first-child {
+            font-weight: bold;
+            width: 150px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Stickman Fighter</h1>
+        <p>An action-packed endless combat game</p>
+    </div>
+
+    <div class="container">
+        <div class="game-preview">
+            <img src="game-preview.png" alt="Stickman Fighter Gameplay" style="max-width: 600px;">
+        </div>
+
+        <div class="download-section">
+            <h2>Download Now</h2>
+            <p>Choose your preferred version:</p>
+            <a href="dist/main.exe" class="download-btn">Download Windows Executable</a>
+            <a href="https://github.com/yourusername/stickman-fighter" class="download-btn" style="background: #34495e;">View on GitHub</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>🎮 Endless Combat</h3>
+                <p>Battle through infinite waves of enemies that get progressively stronger and faster.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚔️ Dynamic Combat</h3>
+                <p>Master regular attacks, aerial combos, and defensive blocking mechanics.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🏆 Score System</h3>
+                <p>Compete for high scores as you defeat enemies and progress through waves.</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <h2>Game Controls</h2>
+            <table>
+                <tr>
+                    <td>Move</td>
+                    <td>Arrow Keys (Left/Right)</td>
+                </tr>
+                <tr>
+                    <td>Regular Attack</td>
+                    <td>Z (20 damage)</td>
+                </tr>
+                <tr>
+                    <td>Aerial Attack</td>
+                    <td>X (35 damage, wider range)</td>
+                </tr>
+                <tr>
+                    <td>Jump</td>
+                    <td>Space</td>
+                </tr>
+                <tr>
+                    <td>Dash</td>
+                    <td>Left Shift</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="download-section">
+            <h2>System Requirements</h2>
+            <p>Windows 7 or later<br>
+            No installation required - just download and play!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>LinkedIn - Nisarg Dolasiya</p>
+    </footer>
+</body>
+</html>
